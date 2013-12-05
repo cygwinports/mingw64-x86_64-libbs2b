@@ -1,0 +1,19 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+NAME="mingw64-x86_64-libbs2b"
+VERSION=3.1.0
+RELEASE=1
+CATEGORY="Devel"
+SUMMARY="Bauer stereophonic-to-binaural DSP library for Win64 toolchain"
+DESCRIPTION="The Bauer stereophonic-to-binaural DSP (bs2b) is designed
+to improve headphone listening of stereo audio records."
+HOMEPAGE="http://bs2b.sourceforge.net/"
+SRC_URI="mirror://sourceforge/bs2b/libbs2b-${VERSION}.tar.lzma"
+SRC_DIR="libbs2b-${VERSION}"
+PATCH_URI="
+	3.1.0-no-undefined.patch
+"
+
+CYGCONF_ARGS="ac_cv_func_malloc_0_nonnull=yes"
+MAKEOPTS+=" bin_PROGRAMS= "
